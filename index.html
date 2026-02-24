@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3rd Grade Social Studies Scope & Sequence</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #e8f4fd 0%, #fef9ee 50%, #f0faf4 100%);
+    min-height: 100vh;
+    padding: 32px 20px 48px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .header .grade-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 22px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #2e6da4;
+    line-height: 1.2;
+  }
+  .header h1 span {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header p {
+    font-size: 1rem;
+    color: #6b7c93;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .flow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* Arrow between units */
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px 0;
+  }
+  .arrow-line {
+    width: 4px;
+    height: 28px;
+    border-radius: 2px;
+  }
+  .arrow-head {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+
+  /* Unit block */
+  .unit-block {
+    width: 100%;
+    border-radius: 20px;
+    padding: 24px 28px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    position: relative;
+  }
+  .unit-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .unit-icon {
+    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .unit-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    opacity: 0.75;
+  }
+  .unit-title {
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #1e2b38;
+  }
+
+  /* Lesson cards grid */
+  .lessons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .lesson-card {
+    background: rgba(255,255,255,0.82);
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    transition: transform 0.18s, box-shadow 0.18s;
+    min-width: 180px;
+    flex: 1 1 180px;
+    max-width: 280px;
+    border: 1.5px solid rgba(255,255,255,0.7);
+  }
+  .lesson-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+  }
+  .lesson-id {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.55;
+    color: #2d3a4a;
+  }
+  .lesson-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e2b38;
+    line-height: 1.3;
+  }
+  .lesson-title-es {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2a8a50;
+    line-height: 1.3;
+  }
+
+  /* ---- Unit Color Themes ---- */
+  /* Unit 1 – teal/blue */
+  .u1 { background: linear-gradient(135deg, #c8eaf8 0%, #daf4ef 100%); }
+  .u1 .unit-label { color: #1a6e8e; }
+  .u1 .arrow-line { background: #4ab3d4; }
+  .u1 .arrow-head { border-top: 14px solid #4ab3d4; }
+  .u1 .lesson-id { color: #1a6e8e; }
+
+  /* Unit 2 – warm orange */
+  .u2 { background: linear-gradient(135deg, #fde8c8 0%, #fdf3d8 100%); }
+  .u2 .unit-label { color: #a05a10; }
+  .u2 .arrow-line { background: #f0a040; }
+  .u2 .arrow-head { border-top: 14px solid #f0a040; }
+  .u2 .lesson-id { color: #a05a10; }
+
+  /* Unit 3 – purple */
+  .u3 { background: linear-gradient(135deg, #e8d8f8 0%, #f3e8fd 100%); }
+  .u3 .unit-label { color: #6a2fa0; }
+  .u3 .arrow-line { background: #a070d0; }
+  .u3 .arrow-head { border-top: 14px solid #a070d0; }
+  .u3 .lesson-id { color: #6a2fa0; }
+
+  /* Unit 4 – rose/pink */
+  .u4 { background: linear-gradient(135deg, #fcd8e0 0%, #fde8f0 100%); }
+  .u4 .unit-label { color: #9a2040; }
+  .u4 .arrow-line { background: #e06080; }
+  .u4 .arrow-head { border-top: 14px solid #e06080; }
+  .u4 .lesson-id { color: #9a2040; }
+
+  /* Unit 5 – green */
+  .u5 { background: linear-gradient(135deg, #d0f0dc 0%, #e4f8e8 100%); }
+  .u5 .unit-label { color: #1a6e3a; }
+  .u5 .arrow-line { background: #40b868; }
+  .u5 .arrow-head { border-top: 14px solid #40b868; }
+  .u5 .lesson-id { color: #1a6e3a; }
+
+  /* Unit 6 – golden yellow */
+  .u6 { background: linear-gradient(135deg, #fdf0c0 0%, #fdf8d8 100%); }
+  .u6 .unit-label { color: #8a6a00; }
+  .u6 .arrow-line { background: #d4aa20; }
+  .u6 .arrow-head { border-top: 14px solid #d4aa20; }
+  .u6 .lesson-id { color: #8a6a00; }
+
+  /* Unit 7 – coral/red */
+  .u7 { background: linear-gradient(135deg, #ffddd0 0%, #ffeee8 100%); }
+  .u7 .unit-label { color: #8a2810; }
+  .u7 .lesson-id { color: #8a2810; }
+
+  @media (max-width: 600px) {
+    .lesson-card { max-width: 100%; }
+    header h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="grade-badge">3rd Grade · Social Studies</div>
+  <h1>The <span>Story of Culture</span></h1>
+  <p>Scope &amp; Sequence — Click any lesson card to open the lesson plan</p>
+</header>
+
+<div class="flow-container">
+
+  <!-- UNIT 1 -->
+  <div class="unit-block u1">
+    <div class="unit-header">
+      <div class="unit-icon">🎭</div>
+      <div>
+        <div class="unit-label">Unit 1</div>
+        <div class="unit-title">What is Culture? / ¿Qué es cultura?</div>
+      </div>
+    </div>
+    <div class="lessons-grid">
+      <a class="lesson-card" href="https://docs.google.com/document/d/1LPQt_Y2uQgDkRhk3Y6Ez84zbhKR20piIlF-x3Y1xddo/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 1.1</span>
+        <span class="lesson-title">What is Culture?</span>
+        <span class="lesson-title-es">¿Qué es cultura?</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1Gwlbhm78J7BmCW445rJeHzbNHVVHdHbLINWEOjGWxms/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 1.2</span>
+        <span class="lesson-title">Cultural Universals and Symbols</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1NiRez4jv5h8jby0r_JTEmhATzsMfh7Zv2HrUwjU7bks/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 1.3</span>
+        <span class="lesson-title">Place-Based Cultural Influences</span>
+        <span class="lesson-title-es">Influencias culturales basadas en el lugar</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1nE0MK33aY1p1WdP7s1v05TrcSjNZnVIqu5xVdMdlnKo/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 1.4</span>
+        <span class="lesson-title">Exploring Culture</span>
+        <span class="lesson-title-es">Explorando la cultura</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrow 1→2 -->
+  <div class="arrow u1">
+    <div class="arrow-line"></div>
+    <div class="arrow-head"></div>
+  </div>
+
+  <!-- UNIT 2 -->
+  <div class="unit-block u2">
+    <div class="unit-header">
+      <div class="unit-icon">🏠</div>
+      <div>
+        <div class="unit-label">Unit 2</div>
+        <div class="unit-title">Basic Needs</div>
+      </div>
+    </div>
+    <div class="lessons-grid">
+      <a class="lesson-card" href="https://docs.google.com/document/d/1wslGYGvW-MemDE7jd384FuWfptBmm0fkEb4B1IDxA_M/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 2.1</span>
+        <span class="lesson-title">Shelters</span>
+        <span class="lesson-title-es">Refugios</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/19HOuJeWWEOuXeozU3mUk4emV93dVOiUiO1QSYLXzCuM/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 2.2</span>
+        <span class="lesson-title">Clothing</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1S3uMF61Rbd3Ho9pEWjLwTXJ4EvyOs7xS/edit?usp=drive_link&ouid=108532056630221742669&rtpof=true&sd=true" target="_blank">
+        <span class="lesson-id">Lesson 2.3</span>
+        <span class="lesson-title">Food</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrow 2→3 -->
+  <div class="arrow u2">
+    <div class="arrow-line"></div>
+    <div class="arrow-head"></div>
+  </div>
+
+  <!-- UNIT 3 -->
+  <div class="unit-block u3">
+    <div class="unit-header">
+      <div class="unit-icon">🎎</div>
+      <div>
+        <div class="unit-label">Unit 3</div>
+        <div class="unit-title">Customs, Traditions, &amp; Values</div>
+      </div>
+    </div>
+    <div class="lessons-grid">
+      <a class="lesson-card" href="https://docs.google.com/document/d/1IYkEhHYIDaZxR8SUSTro_L8vFhO2-nWSnsL82lkG-h0/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 3.1</span>
+        <span class="lesson-title">Values</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1nxTko7K4NeKrC1fGXCVP9iV2EHmDC--GTbeTHzear4Y/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 3.2</span>
+        <span class="lesson-title">Customs &amp; Traditions Around the World</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrow 3→4 -->
+  <div class="arrow u3">
+    <div class="arrow-line"></div>
+    <div class="arrow-head"></div>
+  </div>
+
+  <!-- UNIT 4 -->
+  <div class="unit-block u4">
+    <div class="unit-header">
+      <div class="unit-icon">📡</div>
+      <div>
+        <div class="unit-label">Unit 4</div>
+        <div class="unit-title">Communication &amp; Education</div>
+      </div>
+    </div>
+    <div class="lessons-grid">
+      <a class="lesson-card" href="https://docs.google.com/document/d/17jQePm9j40wCxWOmAJ48ltSxaHBZSibw6Z-J-OBTZU0/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 4.1</span>
+        <span class="lesson-title">Communication (Part 1: What? &amp; Why?)</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1jE1ePno0DCMovwScR12E_A2DCI51YW38t3fSnUzgXiE/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 4.2</span>
+        <span class="lesson-title">Communication (Part 2: How)</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1XiNW0K1xSaFsPx1Io-bljlyhiC1jRwG3C6VF0hfwtNM/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 4.3</span>
+        <span class="lesson-title">Communication (Part 3: Connections)</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1qmyXQUAaFhlei7JZqsoZGGozzby2r5ctvpWzFlpSgwk/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 4.4</span>
+        <span class="lesson-title">US Education</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1CDKZFWRGf46Su_WpBrceOlPLIRU1-4J3sqGYI0uISOc/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 4.5</span>
+        <span class="lesson-title">Education Around the World</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrow 4→5 -->
+  <div class="arrow u4">
+    <div class="arrow-line"></div>
+    <div class="arrow-head"></div>
+  </div>
+
+  <!-- UNIT 5 -->
+  <div class="unit-block u5">
+    <div class="unit-header">
+      <div class="unit-icon">🏛️</div>
+      <div>
+        <div class="unit-label">Unit 5</div>
+        <div class="unit-title">Government, Transportation, &amp; Economics</div>
+      </div>
+    </div>
+    <div class="lessons-grid">
+      <a class="lesson-card" href="https://docs.google.com/document/d/1WW9I0NFJQlN_t1F0yIgotCReJofXmTEHraLqFgzn_OU/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 5.1</span>
+        <span class="lesson-title">Government</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1wSBwSO6PAxvOVZ-qtyTU3cB4FaQ-G8A9-5rtmqPs-Ww/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 5.2</span>
+        <span class="lesson-title">Economics</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1PlBIIwNtHPfAkdg1p_nGzi68nOQHDW4nDwONjVoyGTY/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 5.3</span>
+        <span class="lesson-title">Transportation</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrow 5→6 -->
+  <div class="arrow u5">
+    <div class="arrow-line"></div>
+    <div class="arrow-head"></div>
+  </div>
+
+  <!-- UNIT 6 -->
+  <div class="unit-block u6">
+    <div class="unit-header">
+      <div class="unit-icon">🎨</div>
+      <div>
+        <div class="unit-label">Unit 6</div>
+        <div class="unit-title">Recreation &amp; the Arts</div>
+      </div>
+    </div>
+    <div class="lessons-grid">
+      <a class="lesson-card" href="https://docs.google.com/document/d/1xWZXmdHd___hCyHj4m3BCZs5YRRXL2jSWCU5I56Nl-8/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 6.1</span>
+        <span class="lesson-title">Recreation</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1pvatfLUq5C9Nlm3EJ6280lMmUg2AX4IWkr2EbAXjO_A/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 6.2</span>
+        <span class="lesson-title">The Arts</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrow 6→7 -->
+  <div class="arrow u6">
+    <div class="arrow-line"></div>
+    <div class="arrow-head"></div>
+  </div>
+
+  <!-- UNIT 7 -->
+  <div class="unit-block u7">
+    <div class="unit-header">
+      <div class="unit-icon">🎉</div>
+      <div>
+        <div class="unit-label">Unit 7 — Project-Based Learning</div>
+        <div class="unit-title">The Parade PBL</div>
+      </div>
+    </div>
+    <div class="lessons-grid">
+      <a class="lesson-card" href="https://docs.google.com/document/d/1ElZu1TpbmfaANfhE1hJ6hrZHHC991ylXqqXpk20WrLc/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 7.1</span>
+        <span class="lesson-title">Celebrating Cultures Through Parades</span>
+      </a>
+      <a class="lesson-card" href="https://docs.google.com/document/d/1vmiqnozyIIXvh8Q2s0nsddwOZEcmgmuM_Hq7BTOS66c/edit?usp=drive_link" target="_blank">
+        <span class="lesson-id">Lesson 7.2</span>
+        <span class="lesson-title">Final Project</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- end flow-container -->
+
+</body>
+</html>
